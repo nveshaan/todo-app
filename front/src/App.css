@@ -1,0 +1,17 @@
+div {
+  margin: auto;
+  display: block;
+  padding: 15px;
+}
+
+span {
+  padding: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}
