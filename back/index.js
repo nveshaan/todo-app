@@ -30,7 +30,7 @@ app.post("/todos", (req, res) => {
     description: req.body.description,
   };
   todos.push(newTodo);
-  res.end();
+  res.json(todos);
 });
 
 // app.put("/todos/:id", (req, res) => {
@@ -49,7 +49,7 @@ app.post("/todos/:id", (req, res) => {
     res.status(404).send();
   } else {
     todos.splice(todoIndex, 1);
-    res.end();
+    res.json(todos);
   }
 });
 

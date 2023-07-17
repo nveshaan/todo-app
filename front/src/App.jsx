@@ -38,12 +38,8 @@ function App() {
         },
         body: JSON.stringify({ description }),
       })
-        .then(() => {
-          fetchTodos(); // Fetch updated todo list after adding a new todo
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+        .then((res) => res.json())
+        .then((data) => setTodos(data));
       e.target.reset();
     }
   };
@@ -53,16 +49,6 @@ function App() {
     fetch(`http://localhost:3000/todos/${id}`, {
       method: "POST",
     })
-      .then(() => {
-        fetchTodos(); // Fetch updated todo list after deleting a todo
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
-  const fetchTodos = () => {
-    fetch("http://localhost:3000/todos")
       .then((res) => res.json())
       .then((data) => setTodos(data));
   };
