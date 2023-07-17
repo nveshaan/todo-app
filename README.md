@@ -6,6 +6,9 @@
 4. add search bar
 5. add groups with tag
 6. add update option
+7. make the codebase cleaner with modern practices like file structuring (import, export)
+8. add documentation
+9. deploy it
 
 ---
 
