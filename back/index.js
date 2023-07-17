@@ -11,7 +11,7 @@ app.use(cors());
 
 let todos = [];
 
-app.get("/todol", (req, res) => {
+app.get("/todos", (req, res) => {
   res.json(todos);
 });
 
@@ -24,13 +24,13 @@ app.get("/todol", (req, res) => {
 //   }
 // });
 
-app.get("/todos", (req, res) => {
+app.post("/todos", (req, res) => {
   const newTodo = {
     id: Math.floor(Math.random() * 1000000), // unique random id
-    description: req.query.description,
+    description: req.body.description,
   };
   todos.push(newTodo);
-  res.redirect("http://localhost:5173/");
+  res.end();
 });
 
 // app.put("/todos/:id", (req, res) => {
@@ -49,7 +49,7 @@ app.post("/todos/:id", (req, res) => {
     res.status(404).send();
   } else {
     todos.splice(todoIndex, 1);
-    res.redirect("http://localhost:5173/");
+    res.end();
   }
 });
 

@@ -1,56 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
-function Tlist({ todos }) {
+function Tlist({ todos, onDelete }) {
   let i = 1;
   return (
     <>
-      {todos.map((todo) => {
-        let temp = "http://localhost:3000/todos/" + todo.id;
-        return (
-          <div>
-            <form action={temp} method="POST">
-              <span>{i++}.</span>
-              <span>{todo.description}</span>
-              <button>X</button>
-            </form>
-          </div>
-        );
-      })}
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <form onSubmit={(e) => onDelete(e, todo.id)}>
+            <span>{i++}.</span>
+            <span>{todo.description}</span>
+            <button type="submit">X</button>
+          </form>
+        </div>
+      ))}
     </>
   );
 }
 
 function App() {
-  let [todos, setTodos] = React.useState([]);
+  const [todos, setTodos] = useState([]);
 
-  React.useEffect(() => {
-    fetch("http://localhost:3000/todol").then((res) => {
-      res.json().then((data) => {
-        setTodos(data);
-      });
-    });
+  useEffect(() => {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((data) => setTodos(data));
   }, []);
+
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    const description = e.target.description.value;
+    if (description.trim() !== "") {
+      fetch("http://localhost:3000/todos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ description }),
+      })
+        .then(() => {
+          fetchTodos(); // Fetch updated todo list after adding a new todo
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      e.target.reset();
+    }
+  };
+
+  const handleDeleteTodo = (e, id) => {
+    e.preventDefault();
+    fetch(`http://localhost:3000/todos/${id}`, {
+      method: "POST",
+    })
+      .then(() => {
+        fetchTodos(); // Fetch updated todo list after deleting a todo
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const fetchTodos = () => {
+    fetch("http://localhost:3000/todos")
+      .then((res) => res.json())
+      .then((data) => setTodos(data));
+  };
 
   return (
     <>
       <div>
         <h1>Todo</h1>
       </div>
-      <Tlist todos={todos} />
+      <Tlist todos={todos} onDelete={handleDeleteTodo} />
       <div>
-        <form
-          action="http://localhost:3000/todos"
-          method="GET"
-          autoComplete="off"
-        >
+        <form autoComplete="off" onSubmit={handleAddTodo}>
           <input
             type="text"
             placeholder="add todo"
             name="description"
             id="description"
           />
-          <button>Add</button>
+          <button type="submit">Add</button>
         </form>
       </div>
     </>
