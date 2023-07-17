@@ -1,34 +1,16 @@
-### Assignment 1
+### TODO
 
-Create the frontend for a TODO app.
-You should be able to
-
-1. Create a new TODO
-2. List all TODOs
-3. Delete a TODO
-
-The backend we've already written in
-/week2/02-nodejs/solutions/todoServer.solution.js
-
-Make sure you
-
-1. Add app.listen so it is running on 3000
-2. Use cors
-
-Good to do
-
-1. Break things down into components
-2. Use a library like axios to make the requests
+1. add auth
+2. connect mongodb
+3. stylize ui
+4. add search bar
+5. add groups with tag
+6. add update option
 
 ---
 
-setup backend
-setup frontend
-connect both ends
-setup database & auth
+### LOCAL SETUP
 
----
-
-SETUP
-
-npm install
+clone repo
+open terminal in repo folder
+run ```npm install```
