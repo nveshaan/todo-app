@@ -13,4 +13,4 @@
 
 clone repo  
 open terminal in repo folder  
-run ```npm install```
+run ```npm install``` in both front & back directory
