@@ -11,6 +11,6 @@
 
 ### LOCAL SETUP
 
-clone repo
-open terminal in repo folder
+clone repo  
+open terminal in repo folder  
 run ```npm install```
