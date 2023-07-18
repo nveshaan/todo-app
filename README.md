@@ -16,4 +16,5 @@
 
 clone repo  
 open terminal in repo folder  
-run ```npm install``` in both front & back directory
+run `npm install` in both front & back directory
+to start the servers, run `node index.js` in back & `npm run dev` in front
