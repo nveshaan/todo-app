@@ -1,3 +1,5 @@
+@import url('./assets/styles/search-bar.css');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -66,4 +68,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.root {
+  height: 100vh;
+}
+
+.todo-container {
+  margin-top: 50%;
+}
+
+.todo-input-container {
+  display: flex;
 }
