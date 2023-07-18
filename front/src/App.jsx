@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+// import {BiSearch} from 'react-icons'
+
 
 function Tlist({ todos, onDelete }) {
   let i = 1;
@@ -55,21 +57,30 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Todo</h1>
+    <div className="main">
+    <div >
+      <h1>
+      <span class="magic">
+        <span class="magic-text">Todo</span>
+        </span>
+      </h1>
+    
       </div>
       <Tlist todos={todos} onDelete={handleDeleteTodo} />
       <div>
         <form autoComplete="off" onSubmit={handleAddTodo}>
           <input
+            className="input"
             type="text"
-            placeholder="add todo"
+            placeholder="Add todo"
             name="description"
             id="description"
           />
           <button type="submit">Add</button>
         </form>
       </div>
+    </div>
+      
     </>
   );
 }

@@ -1,7 +1,14 @@
+body{
+  background: #001C30;  
+  overflow: hidden;
+}
 div {
   margin: auto;
-  display: block;
   padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  left: 20%;
+
 }
 
 span {
@@ -15,3 +22,21 @@ h1 {
 button {
   margin: 5px;
 }
+.input{
+  padding: 15px;
+  color: #9376E0;
+  background: #001C30;
+  border: 1px solid #DDE6ED;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  &:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+  }
+
+  &:active{
+    text-decoration: none;
+    border: none;
+  }
+}
+
