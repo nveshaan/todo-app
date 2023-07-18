@@ -52,4 +52,5 @@
     stroke: #CCCCCC;
     fill: #CCCCCC;
     stroke-width: 0px;
+    pointer-events: none;
 }
