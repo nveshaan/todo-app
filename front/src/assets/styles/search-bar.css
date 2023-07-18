@@ -4,10 +4,11 @@
     display: flex;
     justify-content: center;
     padding: 0;
+
 }
 
 .search-bar {
-    width: 100%;
+    width: 30vw;
     height: 40px;
     border: none;
     padding-left: 10px;
