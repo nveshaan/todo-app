@@ -58,15 +58,19 @@ function App() {
 		<>
 			<SearchBar />
 
-			<div>
-				<h1>Todo</h1>
-			</div>
-			<Tlist todos={todos} onDelete={handleDeleteTodo} />
-			<div>
-				<form autoComplete='off' onSubmit={handleAddTodo}>
-					<input type='text' placeholder='add todo' name='description' id='description' />
-					<button type='submit'>Add</button>
-				</form>
+			<div className='todo-container'>
+				<div>
+					<h1>Todo</h1>
+				</div>
+				<div className='todo-input-container'>
+					<Tlist todos={todos} onDelete={handleDeleteTodo} />
+					<div>
+						<form autoComplete='off' onSubmit={handleAddTodo}>
+							<input type='text' placeholder='add todo' name='description' id='description' />
+							<button type='submit'>Add</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</>
 	);
