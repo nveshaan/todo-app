@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-// import {BiSearch} from 'react-icons'
+
 
 
 function Tlist({ todos, onDelete }) {
@@ -68,16 +68,26 @@ function App() {
       </div>
       <Tlist todos={todos} onDelete={handleDeleteTodo} />
       <div>
+      <form autoComplete="off" >{/*for the search box */}
+          <input
+            className="input"
+            type="text"
+            placeholder="Search todo 🔍"
+            name="description"
+            id="description"
+          />
+        </form>
         <form autoComplete="off" onSubmit={handleAddTodo}>
           <input
             className="input"
             type="text"
-            placeholder="Add todo"
+            placeholder="Add todo "
             name="description"
             id="description"
           />
-          <button type="submit">Add</button>
+          <button type="submit">Add </button>
         </form>
+
       </div>
     </div>
       
